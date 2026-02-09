@@ -1,14 +1,19 @@
-const express=require("express");
+const express=require("express")
 const app=express();
-app.use("/test",(req,res)=>{
-    res.send("testing");
-})
-app.use("/read",(req,res)=>{
-    res.send("read");
-})
 
-app.use((req,res)=>{
-    res.send("hello server i am");
+app.get("/test",(req,res)=>{
+    res.send("getting");
 })
-
-app.listen(1423);   
+app.post("/test",(req,res)=>{
+    res.send("posting");
+})
+app.delete("/test",(req,res)=>{
+    res.send("deleting");
+})
+app.put("/test",(req,res)=>{
+    res.send("putting");
+})
+app.get("/user/:userid/:name/:pass",(req,res)=>{
+    console.log(req.params);
+})
+app.listen(7777);
